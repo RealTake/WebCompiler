@@ -31,8 +31,8 @@ public class downloadController {
 	@RequestMapping(value = "/test/fileDownload")
     public ModelAndView reDocumentDown(@RequestParam("Fname") String Fname) {
        
-		Fname = Fname.replace("(/)|(..)", "");
-    	
+		Fname = Fname.replaceAll("[.]{2}|/", "");
+    	System.out.println(Fname);
     	//전체 경로를 인자로 넣어 파일 객체를 생성
     	File downFile = new File("E:/code_WC/" + Fname);
 
