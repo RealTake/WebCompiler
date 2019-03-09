@@ -15,10 +15,11 @@ import com.dao.DAO;
 import com.dto.DTO;
 
 @Service
-public class Write_WC implements WCcommand{
+public class Write_S implements Service_Interface{
 	
 	@Autowired
 	DAO dao;
+	String rootPath = "E:/code_WC/";
 	
 	public void excute(DTO dto) 
 	{
@@ -44,7 +45,7 @@ public class Write_WC implements WCcommand{
 	
 	public void WriteFile(String code, String Fname,String type) throws IOException {
 		System.out.println("파일쓰기");
-        FileOutputStream outF = new FileOutputStream("D:/code_WC/" + Fname + type);
+        FileOutputStream outF = new FileOutputStream(rootPath + Fname + type);
         outF.write(code.getBytes("UTF-8"));
         outF.close();
     }
@@ -52,9 +53,11 @@ public class Write_WC implements WCcommand{
 	public void compile(String Fname,String type) 
 	{
 		System.out.println("컴파일");
-		String path = "D:/code_WC/" + Fname + type;
+		String path = rootPath + Fname + type;
 		Process process = null;
 		String[] cmd = new String[] {"javac", path};
+		
+		System.out.println(cmd[0]+cmd[1]);
 		String str = null;
 
 		try {

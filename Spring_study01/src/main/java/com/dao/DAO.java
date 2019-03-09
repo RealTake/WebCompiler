@@ -22,10 +22,11 @@ public class DAO {
 
 	DAO()
 	{
+		
 	}
 	
 	//글쓰기
-	public void write(DTO dto)
+	public String write(DTO dto)
 	{
 		System.out.println("글쓰기 메소드 실행");
 		Document doc = new Document()
@@ -41,7 +42,20 @@ public class DAO {
 				.append("comments", new ArrayList());
 		
 		mongoTemplate.insert(doc,"board");
+		
+		return (String) doc.get("_id");
 	}
+	
+	
+	public String getPath(String bid) {
+		Query query = new Query(new Criteria("_id").is(new ObjectId(bid)));
+		DTO dto = mongoTemplate.findOne(query, DTO.class);
+		String path = dto.getFname();
+		
+		return path;
+	}
+	
+	//
 	
 	// 디비에 접근합니다 가져옵니다
 //	public DTO getData(Document temp, boolean mode)

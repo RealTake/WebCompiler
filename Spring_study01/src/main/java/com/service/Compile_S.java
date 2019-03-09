@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class Compile_WC {
+public class Compile_S {
 	public void excute(HttpServletRequest req, HttpServletResponse res) 
 	{
 //		String code = req.getParameter("code");

@@ -6,13 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.dto.DTO;
-import com.service.WCcommand;
+import com.service.Service_Interface;
 
 @Controller
 public class boardController {
 	
 	@Autowired
-	WCcommand w;
+	Service_Interface w;
 	
 	@RequestMapping(value = "/", method=RequestMethod.GET)
 	public String home(DTO dto) {
