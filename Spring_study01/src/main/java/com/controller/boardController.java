@@ -15,16 +15,16 @@ public class boardController {
 	Service_Interface w;
 	
 	@RequestMapping(value = "/", method=RequestMethod.GET)
-	public String home(DTO dto) {
+	public String home() {
 		
 		
-		return "home";
+		return "write";
 	}
 	@RequestMapping(value = "/write", method=RequestMethod.POST)
 	public String write(DTO dto) {
 		w.excute(dto);
 		
-		return "home";
+		return "redirect:fileDownload?" + "Fname=" + dto.getFname();
 	}
    
 }
