@@ -24,7 +24,7 @@ public class boardController {
 	public String write(DTO dto) {
 		w.excute(dto);
 		
-		return "redirect:fileDownload?" + "Fname=" + dto.getFname();
+		return "redirect:fileDownload?" + "Fname=" + dto.getFname() + dto.getType();
 	}
    
 }
